@@ -167,7 +167,7 @@ class ContactForm {
          // EmailJS credentials
          const serviceID = 'service_7s7i8yb';
          const templateID = 'template_7s7i8yb';
-         const publicKey = 'hT8oYfQ8wK8rN8z8Q';
+         const publicKey = '9J22faj7OjuC08UsG';
 
          // Prepare form data for EmailJS
          const formData = {
