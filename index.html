@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -156,7 +157,7 @@
                     <p>Ready to transform your development workflow? Let's discuss how our AI agents can help your team.</p>
                 </div>
                 <div class="contact-content">
-                    <form class="contact-form" action="https://formspree.io/f/xeqypkwd" method="POST" id="contactForm">
+                    <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -245,5 +246,11 @@
     </footer>
 
     <script src="script.js"></script>
+    <script type="text/javascript">
+        // EmailJS Initialization (replace with your actual credentials)
+        (function() {
+            emailjs.init("placeholder_public_key");
+        })();
+    </script>
 </body>
 </html>

@@ -164,24 +164,26 @@ class ContactForm {
       this.setLoadingState(true);
 
       try {
-         // Prepare form data
-         const formData = new FormData(this.form);
+         // Initialize EmailJS (you'll need to replace these with your actual credentials)
+         // For now, using placeholder values - you'll need to set these up in EmailJS dashboard
+         const serviceID = 'service_placeholder';
+         const templateID = 'template_placeholder';
+         const publicKey = 'placeholder_public_key';
 
-         // Submit form using Fetch API
-         const response = await fetch(this.form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-               'Accept': 'application/json'
-            }
-         });
+         // Prepare form data for EmailJS
+         const formData = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            from_company: document.getElementById('company').value,
+            message: document.getElementById('message').value,
+            to_email: 'info@softorize.com'
+         };
 
-         if (response.ok) {
-            this.showSuccessMessage();
-            this.form.reset();
-         } else {
-            throw new Error('Form submission failed');
-         }
+         // Send email using EmailJS
+         await emailjs.send(serviceID, templateID, formData, publicKey);
+
+         this.showSuccessMessage();
+         this.form.reset();
       } catch (error) {
          console.error('Form submission error:', error);
          this.showErrorMessage();
