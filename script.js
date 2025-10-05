@@ -164,11 +164,10 @@ class ContactForm {
       this.setLoadingState(true);
 
       try {
-         // Initialize EmailJS (you'll need to replace these with your actual credentials)
-         // For now, using placeholder values - you'll need to set these up in EmailJS dashboard
-         const serviceID = 'service_placeholder';
-         const templateID = 'template_placeholder';
-         const publicKey = 'placeholder_public_key';
+         // EmailJS credentials
+         const serviceID = 'service_7s7i8yb';
+         const templateID = 'template_7s7i8yb';
+         const publicKey = 'hT8oYfQ8wK8rN8z8Q';
 
          // Prepare form data for EmailJS
          const formData = {
