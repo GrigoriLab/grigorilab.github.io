@@ -166,16 +166,15 @@ class ContactForm {
       try {
          // EmailJS credentials
          const serviceID = 'service_7s7i8yb';
-         const templateID = 'template_7s7i8yb';
+         const templateID = 'template_dlhw1r9';
          const publicKey = '9J22faj7OjuC08UsG';
 
          // Prepare form data for EmailJS
          const formData = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            from_company: document.getElementById('company').value,
-            message: document.getElementById('message').value,
-            to_email: 'info@softorize.com'
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            company: document.getElementById('company').value || 'Not provided',
+            message: document.getElementById('message').value
          };
 
          // Send email using EmailJS
