@@ -178,12 +178,15 @@ class ContactForm {
          };
 
          // Send email using EmailJS
-         await emailjs.send(serviceID, templateID, formData, publicKey);
+         console.log('Sending email with data:', formData);
+         const response = await emailjs.send(serviceID, templateID, formData, publicKey);
+         console.log('EmailJS response:', response);
 
          this.showSuccessMessage();
          this.form.reset();
       } catch (error) {
          console.error('Form submission error:', error);
+         console.error('Error details:', error.text || error.message);
          this.showErrorMessage();
       } finally {
          this.setLoadingState(false);
