@@ -1,8 +1,24 @@
 // Theme Management
 class ThemeManager {
   constructor() {
-    this.theme = localStorage.getItem('theme') || 'dark';
+    // Check if user has manually set a theme
+    const savedTheme = localStorage.getItem('theme');
+    const manualOverride = localStorage.getItem('themeManualOverride');
+
+    if (manualOverride === 'true' && savedTheme) {
+      this.theme = savedTheme;
+    } else {
+      // Auto-detect based on time of day
+      this.theme = this.getThemeByTime();
+    }
+
     this.init();
+  }
+
+  getThemeByTime() {
+    const hour = new Date().getHours();
+    // Light theme from 6 AM to 6 PM, dark theme otherwise
+    return (hour >= 6 && hour < 18) ? 'light' : 'dark';
   }
 
   init() {
@@ -19,6 +35,8 @@ class ThemeManager {
   toggleTheme() {
     const newTheme = this.theme === 'dark' ? 'light' : 'dark';
     this.applyTheme(newTheme);
+    // Mark that user manually changed the theme
+    localStorage.setItem('themeManualOverride', 'true');
   }
 
   bindEvents() {
